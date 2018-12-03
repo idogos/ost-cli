@@ -1,0 +1,14 @@
+{
+  "scaffolds": {
+    "react-cavalier": {
+      "channel": "github",
+      "path": "Ironsub/react-cavalier",
+      "config": {}
+    },
+    "react-orcrist": {
+      "channel": "github",
+      "path": "shangboyang/react-orcrist",
+      "config": {}
+    }
+  }
+}

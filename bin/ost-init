@@ -1,0 +1,101 @@
+#!/usr/bin/env node
+'use strict';
+require('shelljs/global');
+const program = require('commander');
+const path = require('path');
+const fs = require('fs-extra');
+const glob = require('glob');
+const chalk = require('chalk');
+
+
+const load = require('../lib/load');
+const generator = require('../lib/generator');
+const prompt = require('../lib/prompt');
+const preposition = require('../lib/preposition');
+const print = require('../lib/print').print;
+const installDev = require('../lib/installDev');
+const {checkNodeVersion} = require('../lib/check');
+const home = require('../view/home');
+const env = require('../config/env');
+
+if(!checkNodeVersion()) {
+  console.log(`Your node is ${process.version}`);
+  console.log('Please use node >= 8.3.x');
+  return;
+}
+
+program
+  .usage('[project-name]')
+  .description('create a project from a remote template')
+  .option('--local', 'build in local environment for test');
+
+program.on('--help', () => {
+  console.log();
+  console.log('  Examples:');
+  console.log();
+  console.log(chalk.yellow('    $ react-ost init my-project'));
+  console.log();
+});
+
+program.parse(process.argv);
+
+
+let projectName = null;
+if (program.local) {
+  process.env.NODE_ENV = env.local;
+} else {
+  process.env.NODE_ENV = env.prod;
+}
+
+const generatorPath = require('../config/paths').generatorPath(process.env.NODE_ENV);
+const tmpPath = require('../config/paths').tmpPath;
+
+if (process.env.NODE_ENV === env.local) {
+  projectName = 'my-test-local';
+} else {
+  projectName = program.args[0];
+}
+
+let rootName = path.basename(process.cwd());
+
+const list = glob.sync(generatorPath + '/*');
+
+if (!projectName) {
+  program.help();
+  return;
+}
+
+main()
+  .catch(err => {
+    print({message: err});
+  });
+
+async function main() {
+  rootName = preposition(list, projectName, rootName);
+  if (!rootName) return;
+
+  //fs.emptyDirSync(tmpPath);
+  home();
+  rm('-rf', tmpPath);
+  let finalAnswer = await prompt({
+    projectName: rootName,
+    _env: process.env.NODE_ENV
+  });
+  rootName = finalAnswer['project-name'];
+  if(!preposition(list, rootName, rootName)) {
+    main()
+      .catch(err => {
+        print({message: err});
+      });
+    return;
+  }
+  await load();
+  await generator({
+    projectName: `${finalAnswer['project-name']}`,
+    version: `${finalAnswer['project-version']}`,
+    description: `${finalAnswer['project-description']}`,
+    license: `${finalAnswer['project-license']}`,
+    install: `${finalAnswer['should-install']}`
+  }, tmpPath, `${generatorPath}/${rootName}`);
+  await installDev(`${generatorPath}/${rootName}`, process.env.NODE_ENV);
+}
