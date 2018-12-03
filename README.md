@@ -2,14 +2,14 @@
 [![npm](https://img.shields.io/npm/v/react-cavalier-cli.svg)](https://www.npmjs.com/package/react-cavalier-cli)
 [![npm](https://img.shields.io/npm/dm/react-cavalier-cli.svg)](https://www.npmjs.com/package/react-cavalier-cli)
 
-# React-ost-cli
+# Ost-cli
 
-> A simple CLI for scaffolding React.js projects
+> A mixture CLI for scaffolding React.js projects
 
 
 ## Status: beta
 
-Prerequisites: Node.js (>=8.3) and Git.
+Prerequisites: Node.js (>=8.5) and Git.
 Most of the planned features are in in development. Creating a simple React.js typical project might be okay.
 
 ## Start
