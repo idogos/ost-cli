@@ -1,13 +1,43 @@
 {
   "scaffolds": {
     "react-cavalier": {
-      "channel": "github",
-      "path": "Ironsub/react-cavalier",
-      "config": {}
+      "channel": "gitlab",
+      "path": "https://github.com/Ironsub/react-cavalier.git",
+      "main": "react",
+      "flow": "redux",
+      "build": "webpack",
+      "label": "react+redux+react-router",
+      "config": {
+        "git-branch": "template"
+      }
     },
     "react-orcrist": {
       "channel": "github",
-      "path": "shangboyang/react-orcrist",
+      "path": "https://github.com/shangboyang/react-orcrist.git",
+      "main": "react",
+      "flow": "redux",
+      "build": "webpack",
+      "label": "react+redux+react-router",
+      "config": {
+        "git-branch": "template"
+      }
+    },
+    "react-mobx": {
+      "channel": "gitlab",
+      "path": "http://yb-git.paic.com.cn/medical-app-proving/react-mobx-boilerplate.git",
+      "main": "react",
+      "flow": "mobx",
+      "build": "webpack",
+      "label": "react+mobx+react-router",
+      "branch": "template",
+      "config": {
+        "git-branch": "template"
+      }
+    },
+    "jquery": {
+      "channel": "npm",
+      "path": "jquery",
+      "label": "react+mobx+react-router",
       "config": {}
     }
   }
