@@ -10,19 +10,20 @@ const chalk = require('chalk');
 
 const load = require('../lib/load');
 const generator = require('../lib/generator');
-const prompt = require('../lib/prompt');
 const preposition = require('../lib/preposition');
 const print = require('../lib/print').print;
 const installDev = require('../lib/installDev');
 const {checkNodeVersion} = require('../lib/check');
 const home = require('../view/home');
 const env = require('../config/env');
+const {local} = require('../config/test');
 
 if(!checkNodeVersion()) {
   console.log(`Your node is ${process.version}`);
   console.log('Please use node >= 8.3.x');
   return;
 }
+const prompt = require('../lib/prompt');
 
 program
   .usage('[project-name]')
@@ -33,7 +34,7 @@ program.on('--help', () => {
   console.log();
   console.log('  Examples:');
   console.log();
-  console.log(chalk.yellow('    $ react-ost init my-project'));
+  console.log(chalk.yellow('    $ react-cavalier init my-project'));
   console.log();
 });
 
@@ -51,7 +52,8 @@ const generatorPath = require('../config/paths').generatorPath(process.env.NODE_
 const tmpPath = require('../config/paths').tmpPath;
 
 if (process.env.NODE_ENV === env.local) {
-  projectName = 'my-test-local';
+  rm('-rf', `${generatorPath}/${local.appName}`);
+  projectName = local.appName;
 } else {
   projectName = program.args[0];
 }
@@ -89,7 +91,9 @@ async function main() {
       });
     return;
   }
-  await load();
+  await load({
+    scaffolds: finalAnswer['project-scaffolds']
+  });
   await generator({
     projectName: `${finalAnswer['project-name']}`,
     version: `${finalAnswer['project-version']}`,
