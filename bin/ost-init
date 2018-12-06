@@ -34,7 +34,7 @@ program.on('--help', () => {
   console.log();
   console.log('  Examples:');
   console.log();
-  console.log(chalk.yellow('    $ react-cavalier init my-project'));
+  console.log(chalk.yellow('    $ react-ost init my-project'));
   console.log();
 });
 
@@ -78,7 +78,7 @@ async function main() {
 
   //fs.emptyDirSync(tmpPath);
   home();
-  rm('-rf', tmpPath);
+  // rm('-rf', tmpPath);
   let finalAnswer = await prompt({
     projectName: rootName,
     _env: process.env.NODE_ENV
@@ -100,6 +100,6 @@ async function main() {
     description: `${finalAnswer['project-description']}`,
     license: `${finalAnswer['project-license']}`,
     install: `${finalAnswer['should-install']}`
-  }, tmpPath, `${generatorPath}/${rootName}`);
+  }, tmpPath, `${generatorPath}/${rootName}`, false);
   await installDev(`${generatorPath}/${rootName}`, process.env.NODE_ENV);
 }

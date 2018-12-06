@@ -12,7 +12,7 @@ program
 
 program.on('--help', () => {
   console.log();
-  console.log(chalk.yellow('    Run react-cavalier <command> --help for detailed usage of given command'));
+  console.log(chalk.yellow('    Run react-ost <command> --help for detailed usage of given command'));
   console.log();
 });
 

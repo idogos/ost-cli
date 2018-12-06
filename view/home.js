@@ -2,7 +2,7 @@
 const chalk = require('chalk');
 const env = require('../config/env');
 
-const title = '😃  Welcome to use React-cavalier-cli';
+const title = '😃  Welcome to use React-ost-cli';
 const description = 'A simple CLI for scaffolding React projects ♍';
 const criticalWidth = 60;
 const version = require('../package').version;

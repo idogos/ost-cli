@@ -8,7 +8,7 @@
     "ost-init": "./bin/ost-init"
   },
   "scripts": {
-    "test:local": "node ./bin/cavalier init --local"
+    "test:local": "rm -rf ./build && node ./bin/ost init --local"
   },
   "author": "leotw",
   "license": "MIT",

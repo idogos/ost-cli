@@ -8,7 +8,7 @@ const indefiniteTmpPath = require('../lib/name');
 
 const basePath = fs.realpathSync(process.cwd());
 
-const templateUrl = 'Ironsub/react-cavalier';
+const templateUrl = 'Ironsub/react-ost';
 const tmpPath = path.resolve(basePath, path.join('.', `.${indefiniteTmpPath}`));
 
 const generatorPath = (_env) => {
