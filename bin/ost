@@ -1,22 +1,24 @@
 #!/usr/bin/env node
 const program = require('commander');
 const chalk = require('chalk');
+const { clearConsole } = require('../lib/print');
 
-const {clearConsole} = require('../lib/print');
-
-initLogger();
+// initLogger();
 program
   .version(require('../package').version)
   .usage('<command> [options]')
-  .command('init', '创建新项目');
+  .command('init', 'create new project');
 
 program.on('--help', () => {
   console.log();
-  console.log(chalk.yellow('    Run react-ost <command> --help for detailed usage of given command'));
+  console.log(chalk.yellow('    Run ost <command> --help for detailed usage of given command'));
   console.log();
 });
 
 program.parse(process.argv);
+
+
+require('../src/terminal');
 
 function initLogger(message) {
   clearConsole(message);

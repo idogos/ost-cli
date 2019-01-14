@@ -1,8 +1,8 @@
 {
   "scaffolds": {
     "react-cavalier": {
-      "channel": "gitlab",
-      "path": "https://github.com/Ironsub/react-cavalier.git",
+      "channel": "github",
+      "path": "https://github.com/Ironsub/react-cavalier",
       "main": "react",
       "flow": "redux",
       "build": "webpack",
@@ -13,14 +13,12 @@
     },
     "react-orcrist": {
       "channel": "github",
-      "path": "https://github.com/shangboyang/react-orcrist.git",
+      "path": "shangboyang/react-orcrist",
       "main": "react",
       "flow": "redux",
       "build": "webpack",
       "label": "react+redux+react-router",
-      "config": {
-        "git-branch": "template"
-      }
+      "config": {}
     },
     "react-mobx": {
       "channel": "gitlab",
