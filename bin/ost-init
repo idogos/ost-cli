@@ -5,20 +5,22 @@ const ora = require('ora');
 const load = require('../src/load');
 const prompt = require('../src/prompt');
 
+require('../src/store');
+
 process.on('unhandledRejection', reason => {
   if(reason.__MSG__) {
-    // const spinner = ora(`loading...\n`);
+    const spinner = ora(`loading...\n`);
     const msg = reason.__MSG__.toLowerCase();
     switch (true) {
       case /download/.test(msg):
       case /write/.test(msg):
-        // spinner.fail(msg);
+        spinner.fail(reason.__MSG__);
         break;
       default:
         break;
     }
+    console.log(reason.err);
   }
-  console.log(reason);
 });
 
 
@@ -43,6 +45,7 @@ program.parse(process.argv);
 run();
 async function run() {
   const appName = program.args[0];
+  __SET_APP_NAME__(appName);
   await prompt();
-  await load(appName);
+  await load(__GET_APP_NAME__());
 }

@@ -16,10 +16,3 @@ program.on('--help', () => {
 });
 
 program.parse(process.argv);
-
-
-require('../src/terminal');
-
-function initLogger(message) {
-  clearConsole(message);
-}
