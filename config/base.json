@@ -3,9 +3,6 @@
     "react-cavalier": {
       "channel": "github",
       "path": "https://github.com/Ironsub/react-cavalier",
-      "main": "react",
-      "flow": "redux",
-      "build": "webpack",
       "label": "react+redux+react-router",
       "config": {
         "git-branch": "template"
@@ -14,20 +11,13 @@
     "react-orcrist": {
       "channel": "github",
       "path": "shangboyang/react-orcrist",
-      "main": "react",
-      "flow": "redux",
-      "build": "webpack",
       "label": "react+redux+react-router",
       "config": {}
     },
     "react-mobx": {
       "channel": "gitlab",
       "path": "http://yb-git.paic.com.cn/medical-app-proving/react-mobx-boilerplate.git",
-      "main": "react",
-      "flow": "mobx",
-      "build": "webpack",
       "label": "react+mobx+react-router",
-      "branch": "template",
       "config": {
         "git-branch": "template"
       }
