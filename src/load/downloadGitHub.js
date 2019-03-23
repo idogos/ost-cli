@@ -5,9 +5,8 @@ function downloadGitHub(url, savePath) {
   return new Promise((resolve, reject) => {
     download(url, finalPath, null, function(err) {
       if(err) {
-        console.log(err);
         reject({
-          __MSG__: 'Download github fail',
+          __MSG__: __ERROR_STATUS__['download-github-fail'],
           err
         });
       }

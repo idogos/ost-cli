@@ -16,7 +16,7 @@ module.exports = function() {
           })
           .catch(err => {
             reject({
-              __MSG__: 'Write error',
+              __MSG__: __ERROR_STATUS__['write-error'],
               err
             });
           });
@@ -27,7 +27,7 @@ module.exports = function() {
           resolve(resultCollection)
         } else {
           reject({
-            __MSG__: 'Write error',
+            __MSG__: __ERROR_STATUS__['write-error'],
             err
           });
         }

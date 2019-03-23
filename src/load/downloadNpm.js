@@ -33,7 +33,7 @@ function downloadNpm(url, savePath, directoryName = null) {
       })
       .catch(err => {
         reject({
-          __MSG__: 'Download npm fail',
+          __MSG__: __ERROR_STATUS__['download-npm-fail'],
           err
         })
       })
