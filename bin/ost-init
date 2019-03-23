@@ -3,6 +3,8 @@ const program = require('commander');
 const chalk = require('chalk');
 const load = require('../src/load');
 const prompt = require('../src/prompt');
+const screen = require('../src/screen');
+const generate = require('../src/generate');
 
 require('../src/store');
 
@@ -10,18 +12,15 @@ process.on('unhandledRejection', reason => {
   if(reason.__MSG__) {
     const msg = reason.__MSG__.toLowerCase();
     switch (true) {
-      case /10001/.test(msg):
-      case /10002/.test(msg):
-      case /10003/.test(msg):
-        global.spinner.fail(reason.__MSG__.split('@')[1]);
+      case Object.entries(__ERROR_STATUS__).join().toLowerCase().includes(msg):
+        global.spinner.fail(msg.split('@')[1]);
         break;
       default:
         break;
     }
-    // console.log(reason.err);
+    console.log(reason.err);
   }
 });
-
 
 program
   .usage('[project-name]')
@@ -43,8 +42,10 @@ program.parse(process.argv);
 
 run();
 async function run() {
+  screen();
   const appName = program.args[0];
   __SET_APP_NAME__(appName);
   await prompt();
   await load(__GET_APP_NAME__());
+  generate(__GET_APP_PATH__());
 }
