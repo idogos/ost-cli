@@ -37,6 +37,9 @@
       "path": "jquery",
       "label": "react+mobx+react-router",
       "config": {}
+    },
+    "react-rs": {
+      ""
     }
   }
 }
