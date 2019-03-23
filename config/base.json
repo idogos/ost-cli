@@ -38,8 +38,11 @@
       "label": "react+mobx+react-router",
       "config": {}
     },
-    "react-rs": {
-      ""
+    "react-ost-universal": {
+      "channel": "github",
+      "path": "shangboyang/react-ost-universal",
+      "label": "react ssr",
+      "config": {}
     }
   }
 }
