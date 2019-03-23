@@ -9,7 +9,7 @@ const downloadNpm = require('./downloadNpm');
 const basePath = fs.realpathSync(process.cwd());
 const savePath = path.resolve(basePath, path.join('.', process.env.NODE_ENV === 'local'? 'build' : ''));
 
-const spinner = ora(`loading...\n`);
+global.spinner = ora(`loading...\n`);
 
 async function load(directoryName = null) {
   shell.rm('-rf', savePath);
