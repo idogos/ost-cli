@@ -1,18 +1,19 @@
 const path = require('path');
 const glob = require('glob');
 const chalk = require('chalk');
-const fs = require("fs");
-const basePath = fs.realpathSync(process.cwd());
-const savePath = path.resolve(basePath, path.join('.', ));
+const fs = require('fs');
 
+module.exports = function({ dest, index = 4, isParentLast = false, level = 2 }) {
+  exec([dest], index, isParentLast, level);
+};
 
 /**
- *
  * @param dest 物理路经
  * @param index
  * @param isParentLast 父节点是否是当前对象最后一个节点
+ * @param level 需要遍历的层级
  */
-const a = function (dest, index = 4, isParentLast = false, level = 2) {
+function exec(dest, index = 4, isParentLast = false, level = 2) {
   if(Array.isArray(dest)) {
     console.log(chalk.cyan(`    ${path.basename(dest[0])}`));
     dest = dest[0];
@@ -34,11 +35,10 @@ const a = function (dest, index = 4, isParentLast = false, level = 2) {
     const lastRight = '└──';
     if(idx === len - 1) {
       console.log(chalk.cyan(`${left}${space}${lastRight}${fileName}`));
-      a(file, index + 4, true, level - 1);
+      exec(file, index + 4, true, level - 1);
     } else {
       console.log(chalk.cyan(`${left}${space}${notLastRight}${fileName}`));
-      a(file, index + 4, false, level - 1);
+      exec(file, index + 4, false, level - 1);
     }
   });
-};
-a(['/Users/tiwenleo/liu/repository/ironsub/ost-cli/build/app-5def1266fb/'], 4, false, 2);
+}
