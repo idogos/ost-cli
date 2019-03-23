@@ -2,7 +2,7 @@ const spawn = require('cross-spawn-with-kill');
 const inquirer = require('inquirer');
 const {isYarnAvailable} = require('./check');
 const {print} = require('./print');
-const env = require('../config/env');
+const env = require('../../config/env');
 
 module.exports = function (path, _env = env.prod) {
   const shouldInstallAuto = () => ({

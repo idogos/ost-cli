@@ -1,4 +1,4 @@
-const scaffolds = require('../../config/base').scaffolds;
+const scaffolds = require('../../../config/base').scaffolds;
 module.exports = {
   createProjectName: {
     name: 'project-name',

@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-const env = require('../../config/env');
+const env = require('../../../config/env');
 const promptMap = require('./config');
 
 const confirmProjectName = (projectName) => ({

@@ -1,11 +1,11 @@
 'use strict';
 const chalk = require('chalk');
-const env = require('../config/env');
+const env = require('../../config/env');
 
 const title = '😃  Welcome to use React-ost-cli';
 const description = 'A simple CLI for scaffolding React projects ♍';
 const criticalWidth = 60;
-const version = require('../package').version;
+const version = require('../../package').version;
 const colorSequence = [
   'green',
   'magenta',
