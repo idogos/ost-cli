@@ -1,5 +1,7 @@
 const urllib = require('urllib');
 const compressing = require('compressing');
+const shell = require('shelljs');
+const getFileTree = require('../utils/getFileTree');
 const httpClient = urllib.create();
 const rename = require('./rename');
 const registry = 'https://registry.npmjs.org';
@@ -26,10 +28,13 @@ function downloadNpm(url, savePath, directoryName = null) {
         return compressing.tgz.uncompress(res, savePath);
       })
       .then(() => {
+        let finalPath;
         if(directoryName && directoryName !== 'package') {
-          rename(`${savePath}/package`, `${savePath}/${directoryName}`);
+          finalPath = `${savePath}/${directoryName}`;
+          shell.rm('-rf', finalPath);
+          rename(`${savePath}/package`, finalPath);
         }
-        resolve(savePath);
+        resolve(finalPath);
       })
       .catch(err => {
         reject({
