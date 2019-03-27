@@ -33,6 +33,14 @@
       "path": "shangboyang/react-ost-universal",
       "label": "react ssr",
       "config": {}
+    },
+    "spinacia-cli": {
+      "channel": "npm-cli",
+      "path": "jquery",
+      "label": "react",
+      "config": {
+        "parts": ["pure", "mobx", "redux"]
+      }
     }
   }
 }
