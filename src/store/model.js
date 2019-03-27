@@ -9,5 +9,6 @@ global.__ERROR_STATUS__ = {
   ['write-error']: '10001@Write error',
   ['download-npm-fail']: '20002@Download npm fail',
   ['download-github-fail']: '20003@Download github fail',
-  ['download-not-available']: '20004@Not available load channel'
+  ['download-npmCli-fail']: '20004@Use cli fail',
+  ['download-not-available']: '20005@Not available load channel'
 };
