@@ -5,7 +5,8 @@
   "preferGlobal": true,
   "bin": {
     "ost": "./bin/ost",
-    "ost-init": "./bin/ost-init"
+    "ost-init": "./bin/ost-init",
+    "ost-cli": "./bin/ost-init"
   },
   "scripts": {
     "test:stage": "rm -rf ./build && cross-env NODE_ENV=stage node ./bin/ost init",
