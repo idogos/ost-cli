@@ -41,6 +41,14 @@
       "config": {
         "parts": ["pure", "mobx", "redux"]
       }
+    },
+    "quick": {
+      "channel": "github",
+      "path": "Ironsub/quick",
+      "label": "es2015+webpack",
+      "config": {
+        "git-branch": "master"
+      }
     }
   }
 }
