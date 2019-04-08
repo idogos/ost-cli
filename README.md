@@ -15,15 +15,7 @@ Most of the planned features are in in development. Creating a simple React.js t
 
 installation
 
-```shell
-$ npm install -g react-ost-cli
-```
-
-create a project
-
-```shell
-$ react-ost init <my-project-name>
-```
+rebuild...
 
 ## License
 
