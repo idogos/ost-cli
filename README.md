@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/Ironsub/react-cavalier-cli.svg?branch=master)](https://travis-ci.org/Ironsub/react-cavalier-cli)
-[![npm](https://img.shields.io/npm/v/react-cavalier-cli.svg)](https://www.npmjs.com/package/react-cavalier-cli)
+[![npm](https://img.shields.io/npm/v/ost-cli.svg)](https://www.npmjs.com/package/ost-cli)
 
 # Ost-cli
 
