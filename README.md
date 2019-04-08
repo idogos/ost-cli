@@ -1,10 +1,9 @@
 [![Build Status](https://travis-ci.org/Ironsub/react-cavalier-cli.svg?branch=master)](https://travis-ci.org/Ironsub/react-cavalier-cli)
 [![npm](https://img.shields.io/npm/v/react-cavalier-cli.svg)](https://www.npmjs.com/package/react-cavalier-cli)
-[![npm](https://img.shields.io/npm/dm/react-cavalier-cli.svg)](https://www.npmjs.com/package/react-cavalier-cli)
 
 # Ost-cli
 
-> A mixture CLI for scaffolding React.js projects
+> A mixture CLI for scaffolding Javascript projects
 
 
 ## Status: beta
