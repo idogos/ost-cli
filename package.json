@@ -1,7 +1,7 @@
 {
   "name": "ost-cli",
   "version": "1.0.0",
-  "description": "A simple CLI for scaffolding React.js projects",
+  "description": "A mixture CLI for scaffolding Javascript projects",
   "preferGlobal": true,
   "bin": {
     "ost": "./bin/ost",
