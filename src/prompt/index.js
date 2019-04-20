@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const async = require('async');
-const promptList = require('./section');
+const { promptList } = require('./section');
 
 module.exports = function() {
   let resultCollection = {};

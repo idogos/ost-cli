@@ -6,6 +6,7 @@ const ora = require('ora');
 const scaffolds = require('../../config/base').scaffolds;
 const downloadGitHub = require('./downloadGitHub');
 const downloadNpm = require('./downloadNpm');
+const downloadNpmCli = require('./downloadNpmCli');
 const basePath = fs.realpathSync(process.cwd());
 const savePath = path.resolve(basePath, path.join('.', process.env.NODE_ENV === 'local' ? 'build' : '.'));
 
@@ -23,6 +24,10 @@ async function load(directoryName = null) {
       break;
     case 'npm':
       finalSavePath = await downloadNpm(path, savePath, directoryName);
+      break;
+    case 'npm-cli':
+      const exec = config.exec.replace(/{{appName}}/, '');
+      finalSavePath = await downloadNpmCli(path, savePath, directoryName);
       break;
     default:
       await Promise.reject({

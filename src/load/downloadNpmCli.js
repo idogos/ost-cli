@@ -1,6 +1,13 @@
 const shell = require('shelljs');
-const command = 'npx spinacia-cli --redux';
+// const command = 'npx spinacia-cli --redux';
 
+/**
+ *
+ * @param command Linux命令
+ * @param savePath 项目保存路经（不含项目名）
+ * @param directoryName 项目名
+ * @returns {Promise<any>}
+ */
 function downloadNpmCli(command, savePath, directoryName = null) {
   return new Promise((resolve, reject) => {
     shell.exec(`${command} ${directoryName}`, { async: true }, function(code) {

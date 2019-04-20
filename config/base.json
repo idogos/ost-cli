@@ -36,10 +36,11 @@
     },
     "spinacia-cli": {
       "channel": "npm-cli",
-      "path": "jquery",
+      "path": "",
       "label": "react",
       "config": {
-        "parts": ["pure", "mobx", "redux"]
+        "appends": ["--pure", "--mobx", "--redux"],
+        "exec": "npx spinacia-cli {{appName}}"
       }
     },
     "quick": {
