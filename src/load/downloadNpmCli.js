@@ -1,6 +1,6 @@
 const shell = require('shelljs');
-// const command = 'npx spinacia-cli --redux';
-
+const paths = require('../utils/paths');
+const path = require('path');
 /**
  *
  * @param command Linux命令
@@ -9,16 +9,24 @@ const shell = require('shelljs');
  * @returns {Promise<any>}
  */
 function downloadNpmCli(command, savePath, directoryName = null) {
+  const finalAppPath = `${path.basename(savePath)}/${directoryName}`;
+  const finalPath = `${savePath}/${directoryName}`;
   return new Promise((resolve, reject) => {
-    shell.exec(`${command} ${directoryName}`, { async: true }, function(code) {
+    shell.exec(`${command} ${finalAppPath}`, { async: true }, function(code, a, b, c, d) {
+      console.log('-----');
+      console.log('a:', a);
+      console.log('-----');
+      console.log('b:', b);
+      console.log('-----');
+      console.log('c:', c);
+      console.log('-----');
+      console.log('d:', d);
       if(+code !== 0) {
         reject({
           __MSG__: __ERROR_STATUS__['download-npmCli-fail'],
           err: stderr
         });
       } else {
-        const finalPath = `${savePath}/${directoryName}`;
-        shell.mv(directoryName, finalPath);
         resolve(finalPath);
       }
     });

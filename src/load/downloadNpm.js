@@ -1,7 +1,6 @@
 const urllib = require('urllib');
 const compressing = require('compressing');
 const shell = require('shelljs');
-const getFileTree = require('../utils/getFileTree');
 const httpClient = urllib.create();
 const rename = require('./rename');
 const registry = 'https://registry.npmjs.org';

@@ -2,6 +2,9 @@ const download = require('download-git-repo');
 const shell = require('shelljs');
 
 function downloadGitHub(url, savePath) {
+  console.log();
+  console.log(savePath);
+  console.log();
   const finalPath = `${savePath}`;
   shell.rm('-rf', finalPath);
   return new Promise((resolve, reject) => {

@@ -27,7 +27,7 @@ async function load(directoryName = null) {
       break;
     case 'npm-cli':
       const exec = config.exec.replace(/{{appName}}/, '');
-      finalSavePath = await downloadNpmCli(path, savePath, directoryName);
+      finalSavePath = await downloadNpmCli(exec, savePath, directoryName);
       break;
     default:
       await Promise.reject({
