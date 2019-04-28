@@ -14,9 +14,18 @@ module.exports = {
     default: '',
     choices: [...Object.keys(scaffolds)]
   }],
-  getPromptList: function(name, list) {
+  getInputPrompt: function(appName) {
     return {
-      name: name,
+      name: appName,
+      message: '如果需要更换项目名，请重新输入',
+      type: 'input',
+      default: '',
+      choices: []
+    }
+  },
+  getChoicePrompt: function(scaffoldName, list = []) {
+    return {
+      name: scaffoldName,
       message: '请选择样板工程类型',
       type: 'list',
       default: '',
