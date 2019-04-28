@@ -23,14 +23,14 @@ global.__SET_APP_NAME__ = function(an) {
 };
 
 // 设置子模版名
-global.__SET_APPEND_NAME__ = function(an) {
-  process.env.APPEND_NAME__ = an;
+global.__SET_APPENDS_NAME__ = function(an) {
+  process.env.APPENDS_NAME__ = an;
   return an;
 };
 
 // 获取子模版名
-global.__GET_APPEND_NAME__ = function(an) {
-  return process.env.APPEND_NAME__ = an;
+global.__GET_APPENDS_NAME__ = function(an) {
+  return process.env.APPENDS_NAME__ = an;
 };
 
 // 设置项目存放地址

@@ -1,5 +1,6 @@
 process.env.TEMPLATE_NAME = ''; // 客户终端选取base.json里哪个脚手架
 process.env.APP_NAME = ''; // 客户终端开发者自定义项目名
+process.env.APPENDS_NAME = ''; // 通过命令获取脚手架的子目录
 process.env.APP_PATH = ''; // 项目存放路经
 /**
  * 所有的状态码
