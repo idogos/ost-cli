@@ -12,7 +12,9 @@
       "channel": "github",
       "path": "shangboyang/react-orcrist",
       "label": "react+redux+react-router",
-      "config": {}
+      "config": {
+        "static": "https://www.baidu.com/"
+      }
     },
     "react-mobx": {
       "channel": "gitlab",
