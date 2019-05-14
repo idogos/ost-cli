@@ -10,9 +10,9 @@ const path = require('path');
  */
 function downloadNpmCli(command, savePath, directoryName = null, join = false) {
   const finalAppPath = join ? `${path.basename(savePath)}/${directoryName}` : directoryName;
-  console.log();
-  console.log('finalAppPath:', finalAppPath);
-  console.log();
+  // console.log();
+  // console.log('finalAppPath:', finalAppPath);
+  // console.log();
   const finalPath = `${savePath}/${directoryName}`;
   return new Promise((resolve, reject) => {
     shell.exec(`${command} ${finalAppPath}`, { async: true }, function(code, a, b, c, d) {
