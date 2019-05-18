@@ -2,7 +2,6 @@ const load = require('../src/load');
 const prompt = require('../src/prompt');
 const generate = require('../src/generate');
 async function runInit(program) {
-  screen();
   const appName = program.args[0];
   __SET_APP_NAME__(appName);
   await prompt();
