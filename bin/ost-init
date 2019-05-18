@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const program = require('commander');
 const chalk = require('chalk');
-const run = require('./run-init');
+const init = require('./run-init');
 const package = require('./run-package');
 const screen = require('../src/screen');
 
@@ -49,6 +49,6 @@ switch(append) {
     package(program);
     break;
   default:
-    run(program);
+    init(program);
     break;
 }
