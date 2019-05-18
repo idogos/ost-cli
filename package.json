@@ -9,7 +9,7 @@
   "scripts": {
     "test:stage": "rm -rf ./build && cross-env NODE_ENV=stage node ./bin/ost init",
     "test:local": "rm -rf ./build && cross-env NODE_ENV=local node ./bin/ost init",
-    "test:single": "rm -rf ./build && cross-env NODE_ENV=local node ./bin/ost init my-app",
+    "test-package:local": "rm -rf ./build && cross-env NODE_ENV=local node ./bin/ost-init --package",
     "test:unit": ""
   },
   "author": "leotw",
