@@ -24,12 +24,6 @@
         "git-branch": "template"
       }
     },
-    "jquery": {
-      "channel": "npm",
-      "path": "jquery",
-      "label": "react+mobx+react-router",
-      "config": {}
-    },
     "react-ost-universal": {
       "channel": "github",
       "path": "shangboyang/react-ost-universal",
