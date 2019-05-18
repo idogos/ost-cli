@@ -13,8 +13,6 @@ Most of the planned features are in in development. Creating a simple React.js t
 
 ## Start
 
-Installation
-
 ### Install by on-line
 ```bash
 npx ost-cli
