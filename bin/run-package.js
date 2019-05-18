@@ -10,8 +10,6 @@ const TEMPLATE_NAME = 'template-name';
 const APPENDS_NAME = 'appends-name';
 const PACKAGES_DIR = path.join(__dirname, '..', 'packages');
 
-
-
 async function runPackage(program) {
   const appName = program.args[0];
   __SET_APP_NAME__(appName);
@@ -45,7 +43,7 @@ async function promptHandler() {
 
 function loadHandler(appName) {
   const basePath = fs.realpathSync(process.cwd());
-  const savePath = path.resolve(basePath, path.join('.', process.env.NODE_ENV === 'local' ? 'build' : '.'));
+  const savePath = process.env.NODE_ENV === 'local' ? path.resolve(basePath, path.join('.', 'build')) : '.';
   const fromPath = path.resolve(PACKAGES_DIR, `${__GET_TEMPLATE_NAME__()}`);
   const finalSavePath = `${savePath}/${appName}`;
   shell.rm('-rf', finalSavePath);
