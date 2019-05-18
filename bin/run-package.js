@@ -31,7 +31,6 @@ async function promptHandler() {
     __SET_TEMPLATE_NAME__(resultCollection[TEMPLATE_NAME]);
     __SET_APP_NAME__(resultCollection[APP_NAME]);
     __SET_APPENDS_NAME__(resultCollection[APPENDS_NAME]);
-    console.log(resultCollection);
     return resultCollection;
   } catch (err) {
     Promise.reject({
@@ -43,11 +42,11 @@ async function promptHandler() {
 
 function loadHandler(appName) {
   const basePath = fs.realpathSync(process.cwd());
-  const savePath = process.env.NODE_ENV === 'local' ? path.resolve(basePath, path.join('.', 'build')) : '.';
+  const savePath = process.env.NODE_ENV === 'local' ? path.resolve(basePath, path.join('.', 'build')) : '.'; // path.resolve(basePath, path.join('.', 'build'))
   const fromPath = path.resolve(PACKAGES_DIR, `${__GET_TEMPLATE_NAME__()}`);
   const finalSavePath = `${savePath}/${appName}`;
   shell.rm('-rf', finalSavePath);
-  shell.mkdir(savePath);
+  !fs.existsSync(savePath) &&  shell.mkdir(savePath);
   shell.cp('-R', fromPath, finalSavePath);
   __SET_APP_PATH__(finalSavePath);
   return Promise.resolve(finalSavePath);
