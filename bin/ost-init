@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 const program = require('commander');
 const chalk = require('chalk');
-const load = require('../src/load');
-const prompt = require('../src/prompt');
+const run = require('./run-init');
+const package = require('./run-package');
 const screen = require('../src/screen');
-const generate = require('../src/generate');
 
 require('../src/store');
 
@@ -25,6 +24,7 @@ process.on('unhandledRejection', reason => {
 program
   .usage('[project-name]')
   .description('create a project from a remote template')
+  .option('--package', 'create project from a local template')
   .option('--local', 'build in local environment for test')
   .option('--prod', 'build in production environment for test')
   .option('--stage', 'build in stage environment for test')
@@ -34,18 +34,21 @@ program.on('--help', () => {
   console.log();
   console.log('  Examples:');
   console.log();
-  console.log(chalk.yellow('    $ ost init my-project'));
+  console.log(chalk.yellow('    $ npx ost-cli my-project'));
   console.log();
 });
 
 program.parse(process.argv);
 
-run();
-async function run() {
-  screen();
-  const appName = program.args[0];
-  __SET_APP_NAME__(appName);
-  await prompt();
-  await load(__GET_APP_NAME__());
-  generate(__GET_APP_PATH__());
+screen();
+
+const argvs = process.argv;
+const append = argvs.find(arg => arg.indexOf('--') > -1);
+switch(append) {
+  case '--package':
+    package(program);
+    break;
+  default:
+    run(program);
+    break;
 }

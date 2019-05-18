@@ -10,7 +10,7 @@ program
 
 program.on('--help', () => {
   console.log();
-  console.log(chalk.yellow('    Run ost <command> --help for detailed usage of given command'));
+  console.log(chalk.yellow('    Run npx ost-cli --help for detailed usage of given command'));
   console.log();
 });
 
