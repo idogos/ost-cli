@@ -13,9 +13,20 @@ Most of the planned features are in in development. Creating a simple React.js t
 
 ## Start
 
-installation
+Installation
 
-rebuild...
+### Install by on-line
+```bash
+npx ost-cli
+```
+
+![online](http://g.recordit.co/0Yxc5zcjil.gif)
+
+### Install by package
+```bash
+npx ost-cli --package
+```
+![package](http://g.recordit.co/taIWsnHCNV.gif)
 
 ## License
 
