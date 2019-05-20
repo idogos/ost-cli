@@ -1,2 +1,11 @@
 separated/
 unit/
+build/
+yarn.lock
+.idea
+.github
+.editorconfig
+.eslintignore
+.eslintrc
+.gitignore
+.travis.yml
