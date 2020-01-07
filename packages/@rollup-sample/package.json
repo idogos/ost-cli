@@ -1,0 +1,46 @@
+{
+  "name": "@org/app",
+  "version": "1.0.0",
+  "description": "Sample project for packages built with rollup.",
+  "main": "dist/app.js",
+  "module": "dist/app.mjs",
+  "jsnext:main": "dist/app.mjs",
+  "scripts": {
+    "prebuild": "eslint lib test",
+    "build": "rollup -c --environment BUILD:production",
+    "watch": "rollup -c -w",
+    "pretest": "rollup -c",
+    "test": "mocha --reporter test/istanbul.reporter.js",
+    "test:watch": "mocha -w",
+    "prepublish": "BUILD=production npm test"
+  },
+  "keywords": [
+    "es6",
+    "modules",
+    "rollup",
+    "bundle",
+    "browser"
+  ],
+  "author": "leo",
+  "license": "MIT",
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-external-helpers": "^6.18.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-register": "^6.18.0",
+    "babelrc-rollup": "^3.0.0",
+    "eslint": "^4.1.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "rollup": "^0.43.0",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-istanbul": "^1.1.0",
+    "rollup-watch": "^4.0.0"
+  }
+}
