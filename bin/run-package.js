@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const shell = require('shelljs');
+const compressing = require('compressing');
 const fs = require('fs');
 const path = require('path');
 const generate = require('../src/generate');
@@ -46,10 +47,19 @@ function loadHandler(appName) {
   const fromPath = path.resolve(PACKAGES_DIR, `${__GET_TEMPLATE_NAME__()}`);
   const finalSavePath = `${savePath}/${appName}`;
   shell.rm('-rf', finalSavePath);
-  !fs.existsSync(savePath) &&  shell.mkdir(savePath);
-  shell.cp('-R', fromPath, finalSavePath);
-  __SET_APP_PATH__(finalSavePath);
-  return Promise.resolve(finalSavePath);
+  !fs.existsSync(savePath) && shell.mkdir(savePath);
+  return new Promise((resolve) => {
+    compressing
+      .zip
+      .uncompress(fromPath, savePath)
+      .then(res => {
+        let tempName = __GET_TEMPLATE_NAME__();
+        shell.mv(`${savePath}/${tempName.substring(0, tempName.length - 4)}`, finalSavePath);
+        resolve(finalSavePath);
+        __SET_APP_PATH__(finalSavePath);
+      });
+  });
+  // return Promise.resolve(finalSavePath);
 }
 
 
