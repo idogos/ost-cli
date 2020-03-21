@@ -26,6 +26,26 @@ npx ost-cli --package
 ```
 ![package](http://g.recordit.co/taIWsnHCNV.gif)
 
+
+## Add Packages
+
+You can add pkg into `packages`:
+
+```
+ost-cli
+├── packages # Node
+│   ├── @pkg-1.zip
+│   ├── @pkg-2.zip
+│   └── @pkg-3.zip
+```
+
+Please ensure pkg-name must includes `@`, and then zip it:
+
+```bash
+@web-template ==> @web-template.zip # right 
+web-template ==> @web-template.zip # wrong
+```
+
 ## License
 
 MIT
