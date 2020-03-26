@@ -1,6 +1,6 @@
 {
   "name": "ost-cli",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "A mixture CLI for scaffolding Javascript projects",
   "bin": {
     "ost-cli": "./bin/ost-init"
